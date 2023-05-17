@@ -9,77 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ClientApplication
 build_property.RootNamespace = ClientApplication
-build_property.ProjectDir = C:\Users\40741\source\repos\FootballManager_v0.1\ClientApplication\
+build_property.ProjectDir = C:\Users\40741\source\repos\FootballManager_v0.1\Football_manager_2\ClientApplication\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\40741\source\repos\FootballManager_v0.1\ClientApplication
+build_property.MSBuildProjectDirectory = C:\Users\40741\source\repos\FootballManager_v0.1\Football_manager_2\ClientApplication
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Access/Create.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Access/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Access/Login.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Access/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Access/Signup.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Access/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXFNpZ251cC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Game/GameMenu.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Game/GameMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxHYW1lTWVudS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Game/GameRoom.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Game/GameRoom.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxHYW1lUm9vbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Game/GameSession.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Game/GameSession.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxHYW1lU2Vzc2lvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Home/Index.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Home/Store.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Home/Store.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdG9yZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Shared/Error.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Squad/Editor.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Squad/Editor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3F1YWRcRWRpdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Transfer/BuyPlayer.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Transfer/BuyPlayer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJcQnV5UGxheWVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Transfer/SellPlayer.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Transfer/SellPlayer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJcU2VsbFBsYXllci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Transfer/TransferList.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Transfer/TransferList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJcVHJhbnNmZXJMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/_ViewImports.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/_ViewStart.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/40741/source/repos/FootballManager_v0.1/ClientApplication/Views/Shared/_Layout.cshtml]
+[C:/Users/40741/source/repos/FootballManager_v0.1/Football_manager_2/ClientApplication/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-by3kiyuack

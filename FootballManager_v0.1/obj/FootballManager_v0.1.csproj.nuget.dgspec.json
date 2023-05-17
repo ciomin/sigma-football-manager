@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\FootballManager_v0.1\\FootballManager_v0.1.csproj": {}
+    "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\FootballManager_v0.1\\FootballManager_v0.1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\FootballManager_v0.1\\FootballManager_v0.1.csproj": {
+    "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\FootballManager_v0.1\\FootballManager_v0.1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\FootballManager_v0.1\\FootballManager_v0.1.csproj",
+        "projectUniqueName": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\FootballManager_v0.1\\FootballManager_v0.1.csproj",
         "projectName": "FootballManager_v0.1",
-        "projectPath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\FootballManager_v0.1\\FootballManager_v0.1.csproj",
+        "projectPath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\FootballManager_v0.1\\FootballManager_v0.1.csproj",
         "packagesPath": "C:\\Users\\40741\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\FootballManager_v0.1\\obj\\",
+        "outputPath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\FootballManager_v0.1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\40741\\AppData\\Roaming\\NuGet\\NuGet.Config",

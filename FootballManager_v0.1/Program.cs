@@ -1,6 +1,4 @@
 using FootballManager_v0._1.Models;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
 namespace FootballManager_v0._1

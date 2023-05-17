@@ -10515,11 +10515,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\ClientApplication.csproj",
+      "projectUniqueName": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\ClientApplication\\ClientApplication.csproj",
       "projectName": "ClientApplication",
-      "projectPath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\ClientApplication.csproj",
+      "projectPath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\ClientApplication\\ClientApplication.csproj",
       "packagesPath": "C:\\Users\\40741\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\obj\\",
+      "outputPath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\ClientApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\40741\\AppData\\Roaming\\NuGet\\NuGet.Config",
