@@ -120,10 +120,9 @@ namespace ClientApplication.Controllers
 
 			}
 
-			
-
 			return Json(new { result = "success" });
 		}
+
 
 		public IActionResult Index()
         {
@@ -131,7 +130,14 @@ namespace ClientApplication.Controllers
             // Store username to viewbag
             ViewBag.UserName = userName;
 
-            // Store tnr of coins to viewbag
+            // Verify if the user has a team
+            var user = _context.Users.FirstOrDefault(u => u.Username == userName);
+            if(user.NameOfTeam == "defaultName")
+            {
+                return RedirectToAction("Create", "Access");
+            }
+
+            // Store the nr of coins to viewbag
             ViewBag.wallet = getMoney();
             return View();
         }

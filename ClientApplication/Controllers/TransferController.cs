@@ -26,14 +26,13 @@ namespace ClientApplication.Controllers
                 int userID = user.UserId;
 
                 //Remove the transfer from the available transfers by attaching a buying user
-
                 var happeningTransfer = _context.Transfers.FirstOrDefault(t => t.TransferId == transferId);
                 
                 happeningTransfer.BuyingUserId = userID;
 
                 // Update the player's contract so that the player is now owned by the buying user
                 var player = _context.Players.FirstOrDefault(p => p.PlayerId == happeningTransfer.PlayerId);
-                var teamContract = _context.TeamContracts.FirstOrDefault(tc => tc.PlayerId == player.PlayerId);
+                var teamContract = _context.TeamContracts.FirstOrDefault(tc => tc.PlayerId == player.PlayerId && tc.SquadId == happeningTransfer.SellingUserId);
 
                 teamContract.SquadId = userID;
                 teamContract.Position = 19; // 19 is the position for a player that does not have a role in the team
@@ -146,8 +145,7 @@ namespace ClientApplication.Controllers
                 _context.Transfers.Add(transfer);
 
                 // Update the player's contract so that the player is now on the transfer list (position 20)
-                var player = _context.Players.FirstOrDefault(p => p.PlayerId == transfer.PlayerId);
-                var teamContract = _context.TeamContracts.FirstOrDefault(tc => tc.PlayerId == player.PlayerId);
+                var teamContract = _context.TeamContracts.FirstOrDefault(tc => tc.PlayerId == transfer.PlayerId && tc.SquadId == userID);
                 if (teamContract != null)
                 {
                     teamContract.Position = 20;
