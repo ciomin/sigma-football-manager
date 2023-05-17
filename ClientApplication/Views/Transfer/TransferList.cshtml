@@ -1,0 +1,66 @@
+﻿@model List<Transfer>
+
+
+@{
+    ViewData["Title"] = "Transfer Market";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/transfers.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div style="
+                margin: 10px;
+                padding: 24px;
+                border: 1px solid #dfdfdf;
+                background: #000099;
+                width: 100%;
+                height: 150px;
+                text-align: center;"> <!--Had to use inline css just because the class was working only some of the times for unknown reason-->
+        Want to list one of your players on the transfer market?
+        <a class="accessButton" href="@Url.Action("SellPlayer", "Transfer")" style="text-decoration:none;">Click here</a>
+        <form asp-controller="Transfer" asp-action="TransferList" method="get">
+            <p>
+                <br />
+                Looking for a specific player? <input type="text" name="searchString" placeholder="Search by name" class="textContainer" style="padding: 0.5%;"/>
+                <input class="accessButton" type="submit" value="Search" />
+            </p>
+        </form>
+    </div>
+
+    <div class="mainTransfers">
+        <ul class="transfers">
+            @foreach (var transfer in Model)
+            {
+                <li class="transfers">
+                    <a class="buyButton" href="@Url.Action("BuyPlayer", "Transfer", new { transferId = transfer.TransferId })">Buy</a>
+                    <table>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Position</th>
+                            <th>Quality</th>
+                            <th>Nationality</th>
+                            <th>Club Team</th>
+                            <th>Price</th>
+                            <th>Sold by</th>
+                        </tr>
+                        <tr>
+                            <td>@transfer.Player.FirstName @transfer.Player.LastName</td>
+                            <td>@transfer.Player.Position</td>
+                            <td>@transfer.Player.OverallRank OVR<br> @transfer.Player.Attacking ATT <br>  @transfer.Player.MidfieldControl MID <br> @transfer.Player.Defending DEF</td>
+                            <td>@transfer.Player.Country</td>
+                            <td>@transfer.Player.Team</td>
+                            <td>@transfer.TransferFee</td>
+                            <td>@transfer.SellingUser.Username</td>
+                        </tr>
+                    </table>
+                </li>
+
+            }
+        </ul>
+    </div>
+</body>
+<img style="position: fixed;right: 0%;top: 75%;z-index: 1; max-width: auto; height: 25%;" src="~/css/legends/fabrizio.png" />
+<img style="position: fixed;right: 83%;top: 75%;z-index: 1; max-width: auto; height: 25%;" src="~/css/legends/perez.png" />
+

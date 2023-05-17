@@ -1,0 +1,139 @@
+﻿.container {
+    display: flex; 
+    width: 200%; 
+}
+
+h2 {
+    padding:10px;
+    background-color: #000099;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.left {
+    border-radius: 15px;
+    width: 15%; 
+    background-color: #ccc; 
+}
+
+.right {
+    width: 100%;
+    background-image: url("pitch.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-position-y: top;
+}
+
+/* List styles */
+.slist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.slist li {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #dfdfdf;
+    background: #000099;
+    width: 150px;
+    height:87px;
+    cursor: pointer;
+    border-radius:15px;
+}
+
+/*Drag and drop hints*/
+.slist li.hint {
+    color: black;
+    border: 1px solid #ffc49a;
+    background: #feffb4;
+}
+
+.slist li.active {
+    border: 1px solid #ffa5a5;
+    background: #ffe7e7;
+}
+
+.below {
+    padding: 3%;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif,system-ui;
+    border: 5px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #000099;
+    color: white;
+    background: rgb(204, 204, 204, 0.8);
+    /*top: 100%;
+    position: absolute;*/
+    margin-right: 18%;
+    margin-left: -2%;
+    position: absolute;
+}
+
+
+.GK {
+    position: absolute;
+    top: 75%;
+    left: 48%;
+}
+
+.LB {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+}
+
+.CB1 {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+}
+
+.CB2 {
+    position: absolute;
+    top: 60%;
+    left: 55%;
+}
+
+.RB {
+    position: absolute;
+    top: 60%;
+    left: 70%;
+}
+
+.CM1{
+    position: absolute;
+    top: 37%;
+    left: 35%;
+}
+
+.CM2{
+    position: absolute;
+    top: 40%;
+    left: 47.5%;
+}
+
+.CM3{
+    position: absolute;
+    top: 37%;
+    left: 60%;
+}
+
+.LW {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+}
+
+.ST {
+    position: absolute;
+    top: 15%;
+    left: 48%;
+}
+
+.RW {
+    position: absolute;
+    top: 20%;
+    left: 65%;
+}

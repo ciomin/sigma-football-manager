@@ -1,0 +1,64 @@
+﻿@model ClientApplication.Models.Squad
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Create team";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Football Manager - Name your team</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <form asp-controller="Access" asp-action="Create" method="post">
+        <div class="centerContainer">
+            <h3 class="instruction"><b>Choose a name for your team:</b></h3>
+            <input class="textContainer" type="text" asp-for="SquadName" name="SquadName" placeholder="Team name" maxlength="50" />
+            <br />
+            <button class="accessButton" data-open-modal>Create team</button>
+
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <br />
+                <br />
+                <label>@ViewData["ValidateMessage"]</label>
+            }
+        </div>
+    </form>
+
+    <dialog data-modal style=" 
+                                padding: 24px;
+                                border: 1px solid #dfdfdf;
+                                background-color: #000099;
+                                width: 100%;
+                                text-align: center;">
+        <h2 style="color:white">
+            Your team has been succesfully created! <br />You can find your new players in the 'Squad' menu. Good luck manager!
+        </h2>
+        <br />
+        <button class="accessButton" data-close-modal> Start your journey! </button>
+    </dialog>
+
+    <script>
+        const createTeamButton = document.querySelector('[data-open-modal]')
+        const closeButton = document.querySelector('[data-close-modal]')
+        const dialog = document.querySelector('[data-modal]')
+
+        // Opens a dialog with a nice message
+        createTeamButton.addEventListener('click', () => {
+            event.preventDefault(); // prevent the default form submission behavior
+            dialog.showModal()
+        })
+
+        // Closes the dialog and submits the form causing redirect to the main page
+        closeButton.addEventListener('click', () => {
+           dialog.close()
+           document.querySelector('form').submit()
+        })
+    </script>
+
+</body>
+</html>

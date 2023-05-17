@@ -1,0 +1,119 @@
+﻿@model List<Team>
+
+@{
+    ViewData["Title"] = "Squad Editor";
+}
+
+<head>
+    <script src="~/js/squad.js"></script>
+    <link rel="stylesheet" href="~/css/squad.css" />
+</head>
+
+<body>
+    <ul id="sortlist">
+        <div class="container">
+            <div class="left">
+                @foreach (var team in Model)
+                {
+                    foreach (var player in team.Players)
+                    {
+                        foreach (var contract in team.Contracts)
+                        {
+                            if(contract.Position > 11 && contract.Position < 19)
+                            {
+                                <li data-ContractId="@contract.ContractId"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName @player.LastName @contract.ShirtNumber</li>
+                            }
+                        }
+                    }
+                }
+            </div>
+
+            <div class="right">
+                <h2 class="v1"> Your team's starting lineup:</h2>
+                @foreach (var team in Model)
+                {
+                    foreach (var player in team.Players)
+                    {
+                        foreach (var contract in team.Contracts)
+                        {
+                            if (contract.Position <= 11)
+                            {
+                                var ceva = contract.Position;
+                                switch (ceva)
+                                {
+                                    case 1:
+                                        <li data-ContractId="@contract.ContractId" class="GK"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 2:
+                                        <li data-ContractId="@contract.ContractId" class="LB"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 3:
+                                        <li data-ContractId="@contract.ContractId" class="CB1"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 4:
+                                        <li data-ContractId="@contract.ContractId" class="CB2"><b>@player.OverallRank</b>@player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 5:
+                                        <li data-ContractId="@contract.ContractId" class="RB"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 6:
+                                        <li data-ContractId="@contract.ContractId" class="CM1"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 7:
+                                        <li data-ContractId="@contract.ContractId" class="CM2"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 8:
+                                        <li data-ContractId="@contract.ContractId" class="CM3"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 9:
+                                        <li data-ContractId="@contract.ContractId" class="LW"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 10:
+                                        <li data-ContractId="@contract.ContractId" class="ST"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    case 11:
+                                        <li data-ContractId="@contract.ContractId" class="RW"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                    break;
+                                    default:
+                                        <li data-ContractId="@contract.ContractId"><b>@player.OverallRank</b> @player.Position
+
+                                        <br>
+
+                                        @player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber
+
+                                        </li>
+                                    break;
+                            }
+                                
+                            }
+                        }
+                    }
+                }
+                <br />
+        <div class="below" style="width: 64%; top: 95%; position: absolute;">
+                    <h2 class="v2">Players not in your first team: </h2>
+                    @foreach (var team in Model)
+                    {
+                        foreach (var player in team.Players)
+                        {
+                            foreach (var contract in team.Contracts)
+                            {
+                                if (contract.Position == 19)
+                                {
+                                    <li class="d-inline-block" data-ContractId="@contract.ContractId"><b>@player.OverallRank</b> @player.Position<br>@player.FirstName.Substring(0, 1). @player.LastName @contract.ShirtNumber</li>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </ul>
+
+    <script>
+        slist(document.getElementById("sortlist"));
+    </script>
+
+    <img style="position: absolute;right: 0%;top: 10%;z-index: -1; max-width: auto; height: 80%;" src="~/css/legends/zidane.png" />
+
+</body>

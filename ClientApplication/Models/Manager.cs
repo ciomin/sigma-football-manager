@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace ClientApplication.Models;
+
+public partial class Manager
+{
+    public int ManagerId { get; set; }
+
+    public string FirstName { get; set; } = null!;
+
+    public string LastName { get; set; } = null!;
+
+    public string Nationality { get; set; } = null!;
+
+    public int? YearsOfExperience { get; set; }
+}

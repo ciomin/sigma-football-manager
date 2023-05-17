@@ -1,0 +1,95 @@
+﻿@model IEnumerable<FootballManager_v0._1.Models.Player>
+
+@{
+    ViewData["Title"] = "Edit Players";
+}
+
+<h1 style ="color:white">Players Index</h1>
+
+<p>
+    <a class ="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th style="padding-right = 200px;">
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OverallRank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attacking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MidfieldControl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Defending)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.League)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverallRank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attacking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MidfieldControl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defending)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.League.LeagueName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+               <a class="butonLink" asp-action="Edit" asp-route-id="@item.PlayerId">Edit</a> |
+               <a class="butonLink" asp-action="Details" asp-route-id="@item.PlayerId">Details</a> |
+               <a class="butonLink" asp-action="Delete" asp-route-id="@item.PlayerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

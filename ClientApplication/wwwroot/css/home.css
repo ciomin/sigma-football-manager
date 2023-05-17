@@ -1,0 +1,35 @@
+﻿body {
+}
+
+.welcome{
+    margin: 1%;
+    padding: 1%;
+    text-align: center;
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    color: #d0ff00;
+    background-color: #000099;
+    font-size: 15px;
+
+}
+
+.option {
+    margin: 12px;
+    padding: 2%;
+    text-align: center;
+    background-color: #000099;
+    width: 20%;
+    height: 20%;
+    border: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+    .option:hover {
+        background-color: #72857c;
+        cursor: pointer;
+        border-width: 8px;
+        border-color: #d0ff00;
+    }

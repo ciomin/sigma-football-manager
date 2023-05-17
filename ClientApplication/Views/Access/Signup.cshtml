@@ -1,0 +1,45 @@
+﻿@model ClientApplication.Models.Signup;
+@{
+    Layout = null;
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Football Manager - Register</title>
+        <link rel="stylesheet" href="~/css/site.css" />
+    </head>
+    <body>
+
+        <form asp-controller="Access" asp-action="Signup" method="post">
+            <div class="centerContainer" style=" margin-top: 8%;">
+                <h1>Sign Up</h1>
+
+            <label style="text-align:center;"><b>Username:</b></label>
+                <input type="text" placeholder="Your Username" asp-for="Username" class="textContainer" />
+                <label style="text-align:center;"><b>Email:</b></label>
+                <input type="email" placeholder="Your Email" asp-for="Email" class="textContainer" />
+                <label style="text-align:center;"><b>Password:</b></label>
+                <input type="password" placeholder="Password" asp-for="Password" class="textContainer" />
+                <label style="text-align:center;"><b>Confirm Password:</b></label>
+                <input type="password" placeholder="Confirm Password" asp-for="ConfirmPassword" class="textContainer" />
+                <label style="text-align:center;"><b>Date of birth:</b></label>
+                <input type="date" value="@ViewBag.Today" min="1900-01-01" max="@ViewBag.Today" asp-for="DateOfBirth" class="textContainer" />
+                <br />
+                <button class="accessButton" type="submit">Sign Up</button>
+                
+                @if (ViewData["ValidateMessage"] != null)
+                {
+                    <br />
+                    <br />
+                    <label>@ViewData["ValidateMessage"]</label>
+                }
+            </div>
+        </form>
+
+    <img style="position: absolute;right: 0%;top: 10%;z-index: -1; max-width: auto; height: 65%;" src="~/css/legends/ibra.png"/>
+    <img style="position: absolute;right: 57%;top: 9%;z-index: -1; max-width: auto; height: 65%;" src="~/css/legends/pep.png" />
+    </body>
+</html>

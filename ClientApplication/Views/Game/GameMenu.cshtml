@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Start match";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<style>
+    /* Style the button-like radio containers */
+    .radio-container {
+        display: inline-block;
+        position: relative;
+        margin-right: 10px;
+        padding: 8px 16px;
+        background-color: #72857c;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        color: black;
+    }
+
+        /* Style the selected button */
+        .radio-container.selected {
+            background-color: #d0ff00;
+            color: black;
+        }
+
+        /* Hide the actual radio buttons */
+        .radio-container input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const radioContainers = document.querySelectorAll('.radio-container');
+
+        radioContainers.forEach(container => {
+            container.addEventListener('click', () => {
+                // Remove the 'selected' class from all radio containers
+                radioContainers.forEach(c => {
+                    c.classList.remove('selected');
+                });
+
+                // Add the 'selected' class to the clicked radio container
+                container.classList.add('selected');
+            });
+        });
+    });
+</script>
+
+<div class="dialogBox" style="height: inherit; margin-top: 15%;">
+    <h3>Before sending your players into the game, tell them how you want them to play!</h3>
+    <br />
+    <h5>Choose one of the options below: </h5>
+    <br />
+    <form method="post" action="/Game/JoinMatchmaking">
+        <!-- Radio button options -->
+        <label class="radio-container">
+            <input type="radio" name="option" value="1">
+            Attacking
+        </label>
+
+        <label class="radio-container selected">
+            <input type="radio" name="option" value="0">
+            Balanced
+        </label>
+
+        <label class="radio-container">
+            <input type="radio" name="option" value="2">
+            Defending
+        </label>
+
+        <!-- Button to submit the form -->
+        <button type="submit" class="accessButton">Start the match!</button>
+    </form>
+</div>

@@ -1,0 +1,86 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Waiting hub";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<style>
+    #ball-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+#ball {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: moveUpDown 4s infinite linear;
+}
+
+.goal{
+    position: absolute;
+    top: 10%;
+    left: 14%;
+}
+
+.player{
+    position:absolute;
+    top: 10%;
+    left: 70%;
+}
+
+@@keyframes moveUpDown {
+  0% {
+        left:25%;
+        top: 70%;
+  }
+  50% {
+      left: 75%;
+      top: 70%;
+  }
+  100% {
+      left: 25%;
+      top: 70%;
+  }
+}
+</style>
+
+<div class="dialogBox" style="height: 10%; margin-top: 15%;">
+    <h3>Please wait while we are looking for an opponent</h3>
+    <div id="ball-container">
+        <img src="~/css/images/goal.png" class="goal" width="300" />
+        <img src="~/css/images/camavinga.png" class="player" width="150" />
+        <img src="~/css/images/ball.png" alt="Ball" id="ball" width="50">
+    </div>
+    <h5>Players are warming up...</h5>
+</div>
+
+<script>
+    var userId = '@Model.UserId'; // Get the user id from the model
+    setInterval(function () {
+        checkMatchStatus(userId); // Call the checkMatchStatus function with the userId parameter every 0.5 seconds
+    }, 500);
+
+    function checkMatchStatus(userId) {
+        // Send an AJAX request to the server to check the match status
+        $.ajax({
+            url: '@Url.Action("CheckMatchStatus", "Game")',
+            type: 'GET',
+            data: { userId: userId }, // Pass the userId as a parameter
+            success: function (data) {
+                console.log('MatchFound:', data.matchFound); // Log the MatchFound flag in the console
+                if (data.matchFound) {
+                    var id = data.matchId; // Match Id
+                    window.location.href = "/Game/GameSession?matchId=" + id; // Redirect to the simulation page with the ID parameter
+                }
+            }
+        });
+    }
+</script>

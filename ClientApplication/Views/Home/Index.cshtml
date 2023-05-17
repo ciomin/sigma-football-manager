@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+
+<div class="welcome">
+    <h1 class="display-4">Welcome, @ViewBag.UserName!</h1>
+</div>
+
+<div class="menu">
+    <a asp-controller="Squad" asp-action="Editor"><img class="option" src="~/css/images/iconSquad.png" alt="Squad"/></a>
+    <a asp-controller="Transfer" asp-action="TransferList"><img class="option" src="~/css/images/iconTransfer.png" /></a>
+    <a asp-controller="Home" asp-action="Store"><img class="option" src="~/css/images/iconStore.png" /></a>
+    <br />
+    <a asp-controller="Game" asp-action="GameMenu"><img class="option" src="~/css/images/iconGame.png" /></a>
+    <a asp-controller="Home" asp-action="LogOut"><img class="option" src="~/css/images/iconLogout.png" /></a>
+</div>
+
+<img style="position: absolute;right: 0%;top: 30%;z-index: -1; max-width: auto; height: 70%;" src="~/css/legends/goats.png" />

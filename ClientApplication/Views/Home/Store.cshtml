@@ -1,0 +1,35 @@
+﻿@{
+	ViewData["Title"] = "Shop";
+	var cheapJson = Json.Serialize(ViewBag.cheapPlayers);
+	var regularJson = Json.Serialize(ViewBag.regularPlayers);
+	var expensiveJson = Json.Serialize(ViewBag.expensivePlayers);
+}
+<script>
+	var cheapDeck = @cheapJson
+	var regularDeck = @regularJson
+	var expensiveDeck = @expensiveJson
+	var wallet = @ViewBag.wallet;
+</script>
+<link rel="stylesheet" href="~/css/store.css">
+
+<div id="default-view">
+	<h1 class="display-4" style="text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;">Trading Card Pack Simulator</h1>
+	<div id="coin-counter"></div>
+	<img class="pack" alt="Cheap Pack" src="~/css/cheap_pack.jpg" height=300 width=200 />
+	<img class="pack" alt="Cheap Pack" src="~/css/regular_pack.jpg" height=300 width=200 />
+	<img class="pack" alt="Cheap Pack" src="~/css/expensive_pack.jpg" height=300 width=200 />
+	<br>
+	<button id="cheap-pack">Cheap Pack</button>
+	<button id="regular-pack">Regular Pack</button>
+	<button id="expensive-pack">Expensive Pack</button>
+	<br />
+	<div class="prices">500 Coins</div>
+	<div class="prices">1000 Coins</div>
+	<div class="prices">2500 Coins</div>
+</div>
+<div id="card-view">
+</div>
+<script src="~/js/store.js"></script>
+
+<img style="position: absolute;right: 77%;top: 25%;z-index: -1; max-width: auto; height: 75%;" src="~/css/legends/cristiano.png" />
+<img style="position: absolute;right: 0%;top: 25%;z-index: -1; max-width: auto; height: 75%;" src="~/css/legends/leo.png" />

@@ -1,0 +1,8 @@
+C:\Users\40741\source\repos\FootballManager_v0.1\FootballManager_v0.1\obj\Debug\net6.0\FootballManager.csproj.AssemblyReference.cache
+C:\Users\40741\source\repos\FootballManager_v0.1\FootballManager_v0.1\obj\Debug\net6.0\FootballManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\40741\source\repos\FootballManager_v0.1\FootballManager_v0.1\obj\Debug\net6.0\FootballManager.AssemblyInfoInputs.cache
+C:\Users\40741\source\repos\FootballManager_v0.1\FootballManager_v0.1\obj\Debug\net6.0\FootballManager.AssemblyInfo.cs
+C:\Users\40741\source\repos\FootballManager_v0.1\FootballManager_v0.1\obj\Debug\net6.0\FootballManager.csproj.CoreCompileInputs.cache
+C:\Users\40741\source\repos\FootballManager_v0.1\FootballManager_v0.1\obj\Debug\net6.0\FootballManager.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\40741\source\repos\FootballManager_v0.1\FootballManager_v0.1\obj\Debug\net6.0\FootballManager.RazorAssemblyInfo.cache
+C:\Users\40741\source\repos\FootballManager_v0.1\FootballManager_v0.1\obj\Debug\net6.0\FootballManager.RazorAssemblyInfo.cs

@@ -1,0 +1,68 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    color: white;
+    margin-bottom: 60px;
+    background-image: url("fundal.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+table, th, td {
+    border-radius: 20px;
+    padding: 10px;
+}
+
+thead {
+    background-color: #d0ff00;
+}
+
+td{
+    background-color:green;
+}
+
+table {
+    background-color: white;
+}
+
+.butonLink {
+    color: black;
+    text-align: center;
+    padding: 2.5% 2.5%;
+    text-decoration: none;
+    border: 2px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: white;
+}
+
+.butonLink:hover {
+    background-color: #d0ff00;
+}
+
+.nav-link:hover {
+    color: #d0ff00;
+}
+
+.nav-link{
+    color:white;
+}
+
+.navbar-custom {
+    background-color: #000099;
+}
+

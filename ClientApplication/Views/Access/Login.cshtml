@@ -1,0 +1,49 @@
+﻿@model ClientApplication.Models.Login;
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Log In";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Football Manager - Login</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <form asp-controller="Access" asp-action="Login" method="post">
+        <div class="centerContainer">
+            <h3 class="instruction">Please enter your email and password: <br /></h3>
+            <input class ="textContainer" type="email" asp-for="Email" name="email" placeholder="example@email.com"/>
+            <br />
+            <input class="textContainer" type="password" asp-for="Password" name="password" placeholder="Password" />
+            <br />
+            
+            <label>
+                <input type="checkbox" asp-for="RememberMe" />
+                <b>Remember me?</b>
+            </label>
+                
+            <br />
+            <button class="accessButton" type="submit">Log In</button>
+
+            <p>
+                <label><b>Don't have an account?</b></label>
+                <a href="@Url.Action("Signup", "Access")">Sign Up.</a>
+            </p>
+
+
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <br />
+                <br />
+                <label>@ViewData["ValidateMessage"]</label>
+            }
+
+        </div>
+    </form>
+</body>
+</html>
