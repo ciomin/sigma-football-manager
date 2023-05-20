@@ -9,10 +9,6 @@
       "PackagePath": "staticwebassets\\css\\cheap_pack.jpg"
     },
     {
-      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\coins.webp",
-      "PackagePath": "staticwebassets\\css\\coins.webp"
-    },
-    {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\expensive_pack.jpg",
       "PackagePath": "staticwebassets\\css\\expensive_pack.jpg"
     },
@@ -33,8 +29,16 @@
       "PackagePath": "staticwebassets\\css\\images\\camavinga.png"
     },
     {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\coins.webp",
+      "PackagePath": "staticwebassets\\css\\images\\coins.webp"
+    },
+    {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\goal.png",
       "PackagePath": "staticwebassets\\css\\images\\goal.png"
+    },
+    {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\iconBell.png",
+      "PackagePath": "staticwebassets\\css\\images\\iconBell.png"
     },
     {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\iconGame.png",
@@ -57,8 +61,24 @@
       "PackagePath": "staticwebassets\\css\\images\\iconTransfer.png"
     },
     {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\iconUsername.png",
+      "PackagePath": "staticwebassets\\css\\images\\iconUsername.png"
+    },
+    {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\logo.png",
       "PackagePath": "staticwebassets\\css\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\noMoney.png",
+      "PackagePath": "staticwebassets\\css\\images\\noMoney.png"
+    },
+    {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\pitch.png",
+      "PackagePath": "staticwebassets\\css\\images\\pitch.png"
+    },
+    {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\arteta.png",
+      "PackagePath": "staticwebassets\\css\\legends\\arteta.png"
     },
     {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\carlo.png",
@@ -111,10 +131,6 @@
     {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\zidane.png",
       "PackagePath": "staticwebassets\\css\\legends\\zidane.png"
-    },
-    {
-      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\pitch.png",
-      "PackagePath": "staticwebassets\\css\\pitch.png"
     },
     {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\regular_pack.jpg",

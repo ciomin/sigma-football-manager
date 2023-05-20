@@ -24,6 +24,7 @@ namespace ClientApplication.Controllers
 
         public IActionResult Store()
         {
+            ViewBag.username = HomeController.GetUserName(HttpContext);
             ViewBag.cheapPlayers = getCheapPlayers();
 			ViewBag.regularPlayers = getRegularPlayers();
 			ViewBag.expensivePlayers = getExpensivePlayers();
@@ -123,7 +124,6 @@ namespace ClientApplication.Controllers
 			return Json(new { result = "success" });
 		}
 
-
 		public IActionResult Index()
         {
             var userName = GetUserName(HttpContext);
@@ -139,11 +139,6 @@ namespace ClientApplication.Controllers
 
             // Store the nr of coins to viewbag
             ViewBag.wallet = getMoney();
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 
@@ -168,6 +163,45 @@ namespace ClientApplication.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet]
+        // Returns a view that displays news
+        public IActionResult News()
+        {
+            // Get all news from the database
+            var news = _context.News.ToList();
+
+            var userName = GetUserName(HttpContext);
+            // Store username to viewbag
+            ViewBag.UserName = userName;
+            // Store the nr of coins to viewbag
+            ViewBag.wallet = getMoney();
+
+            return View(news);
+        }
+
+        [HttpGet]
+        // Returns a view that displays the leaderboard table
+        public IActionResult Standings()
+        {
+            // Get all standings from the database
+            List<Standing> standings = _context.Standings.ToList();
+            
+            foreach(Standing item in standings)
+            {
+                // Bind the user to his standing element
+                User user = _context.Users.FirstOrDefault(u => u.UserId == item.UserId);
+                item.User = user;
+            }
+
+            var userName = GetUserName(HttpContext);
+            // Store username to viewbag
+            ViewBag.UserName = userName;
+            // Store the nr of coins to viewbag
+            ViewBag.wallet = getMoney();
+
+            return View(standings);
         }
     }
 }

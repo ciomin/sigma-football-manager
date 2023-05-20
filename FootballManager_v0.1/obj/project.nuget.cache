@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LTF7ZJzoYx9flJFETjT29o6Im5OBAWIkTN3O1NR+mmO4xc7I7GtoQ/QaT3llJOdPgZ2/kl8XqM2/KDjffPeCUA==",
+  "dgSpecHash": "tks8WGWQWRiPg08Y65nVxnLsuyvAYvj0jrYL2BtNjlmRStuZWAVs9ayhzelyVVcK7QJVe6MsP1UFveQpA5mSXw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\Football_manager_2\\FootballManager_v0.1\\FootballManager_v0.1.csproj",
+  "projectFilePath": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\FootballManager_v0.1\\FootballManager_v0.1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\40741\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\40741\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

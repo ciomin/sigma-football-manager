@@ -48,7 +48,7 @@ namespace ClientApplication.Controllers
 
                 // Add nr of coins to the wallet
                 ViewBag.wallet = getMoney();
-
+                ViewBag.username = username;
                 return View(players);
             }
             catch (NullReferenceException)

@@ -48,8 +48,7 @@ namespace FootballManager_v0._1.Controllers
         // GET: Players/Create
         public IActionResult Create()
         {
-            ViewData["League" +
-                "Id"] = new SelectList(_context.Leagues, "LeagueId", "LeagueId");
+            ViewData["LeagueId"] = new SelectList(_context.Leagues, "LeagueId", "LeagueId");
             return View();
         }
 

@@ -1,0 +1,57 @@
+﻿@model List<Standing>
+
+@{
+    ViewData["Title"] = "Standings";
+}
+
+<style>
+    table, th, td {
+        text-align: center;
+        color: black;
+        border-radius: 20px;
+        padding: 10px;
+        width: 100%;
+        table-layout: fixed; /* Add this line */
+        margin-bottom: 3px;
+    }
+
+    thead {
+        background-color: #d0ff00;
+        margin-bottom: 3px;
+    }
+
+    td {
+        background-color: white;
+    }
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Place</th>
+                <th>Team</th>
+                <th>Manager</th>
+                <th>Wins</th>
+                <th>Draws</th>
+                <th>Losses</th>
+                <th>Trophies</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Position</td>
+                    <td>@item.User.NameOfTeam</td>
+                    <td>@item.User.Username</td>
+                    <td>@item.MatchesWon</td>
+                    <td>@item.MatchesDrawn</td>
+                    <td>@item.MatchesLost</td>
+                    <td>@item.Trophies</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

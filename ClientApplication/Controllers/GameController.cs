@@ -148,12 +148,22 @@ namespace ClientApplication.Controllers
 
             ViewBag.Events = events;
 
+            // For shared view
+            ViewBag.wallet = getMoney();
+            ViewBag.username = HomeController.GetUserName(HttpContext);
+
             return View(match);
         }
 
         [HttpGet]
         public IActionResult GameMenu()
         {
+            // Add nr of coins to the wallet
+            ViewBag.wallet = getMoney();
+
+            // Add the username to the viewbag
+            ViewBag.username = HomeController.GetUserName(HttpContext);
+
             return View();
         }
 
@@ -163,11 +173,16 @@ namespace ClientApplication.Controllers
         {
             // Get the flag variable for the user   
             var username = HomeController.GetUserName(HttpContext);
+            ViewBag.userame = username;
+
             User user = _context.Users.FirstOrDefault(u => u.Username == username);
             int userID = user.UserId;
 
             MatchmakingWait waitFlag = waitFlags.FirstOrDefault(w => w.UserId == userID);
-            
+
+            // Add nr of coins to the wallet
+            ViewBag.wallet = getMoney();
+
             return View(user);
         }
 
@@ -192,6 +207,13 @@ namespace ClientApplication.Controllers
             }
         }
 
+        public int getMoney()
+        {
+            var userName = HomeController.GetUserName(HttpContext);
+            var user = _context.Users.FirstOrDefault(u => u.Username == userName);
+
+            return user.Coins;
+        }
     }
 
 }

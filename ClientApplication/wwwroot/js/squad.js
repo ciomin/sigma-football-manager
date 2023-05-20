@@ -60,10 +60,23 @@
                         currentContractId: currentContractId,
                         droppedContractId: droppedContractId
                     },
+                    success: function (data) {
+                        // Update the player positions dynamically (thank you GPT)
+
+                        // Swap the html attributes of the two items
+                        const tempHTML = current.innerHTML; // stores the current innerHTML of the current item (all html and csss attributes)
+                        current.innerHTML = i.innerHTML;
+                        i.innerHTML = tempHTML;
+
+                        // Ensures that the players have the correct data-ContractId attribute
+                        current.setAttribute("data-ContractId", droppedContractId);
+                        i.setAttribute("data-ContractId", currentContractId);
+                    },
+                    error: function () {
+                        alert("An error occurred while updating positions.");
+                    }
                 });
-                setTimeout(function () {
-                    location.reload();
-                }, 50); // Refresh the page after 0.05 seconds
+
 
             }
         };

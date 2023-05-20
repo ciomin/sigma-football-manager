@@ -1,0 +1,23 @@
+﻿@model List<News>
+
+@{
+    ViewData["Title"] = "News";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<bod>
+    <div class="BuyPlayerContainer">
+        <h3>News</h3>
+            @foreach (var item in Model)
+            {
+                <p style="border-bottom: solid 1px white; color:white; margin: 3%; text-align: center; padding:1%;">
+                    @item.Post
+                </p>
+            }
+        <br />
+        <a asp-action="Index" asp-controller="Home" class="accessButton" style="text-decoration:none">Back to home</a>
+    </div>
+</bod>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Transfer Error";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/transfers.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <div class="BuyPlayerContainer" style="color: white;">
+        <h3>Oh no... You do not have enough funds to complete this trasfer!</h3>
+        <br />
+        <img src="~/css/images/noMoney.png" width="150" />
+        <br /><br />
+        <a asp-action="TransferList" asp-controller="Transfer" class="accessButton" style="text-decoration:none;">Return to market</a>
+    </div>
+
+    <img src="~/css/legends/arteta.png" style="max-width: 30%; position: absolute; top: 28%; left: 70%;"/>
+</body>

@@ -29,26 +29,69 @@
 
         /* Style the event column */
         .event-column {
-            border: 1px solid black;
-            height: 500px;
-            overflow-y: scroll;
+            width: 49.8%;
+            border: 1px solid white;
+            height: 400px;
+            overflow: hidden;
+            overflow-y: auto;
+            scroll-behavior: smooth;
             padding: 1em;
             margin-top: 1em;
+            background-color: #000099;
+            display: flex;
+            flex-direction: column;
+            -ms-overflow-style: none; /* hide scroll bar for IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+            .event-column::-webkit-scrollbar {
+            display: none;
+        }
+
+        .event-box{
+            display: flex;
+            flex-direction: row;
         }
 
         /* Style individual events */
         .event {
             margin-bottom: 1em;
+            background-color: white;
+            color: black;
+            border: 1px solid;
+            border-radius: 15px;
+            width: 100%;
+            padding: 2%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;       
         }
 
         .goal {
             margin-bottom: 1em;
-            color: darkturquoise;
+            color: red;
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
         }
 
-        .goals {
-            margin-bottom: 1em;
-            color: red;
+        .flash-goal{
+            color: #d0ff00;
+            animation: flash 2s; /* Add animation */
+        }
+        
+        @@keyframes flash {
+            0% { 
+                background-color: #000099;
+            }
+
+            50% {
+                background-color: #d0ff00;
+            }
+            100% { 
+                background-color: #000099;
+            }
         }
     </style>
 </head>
@@ -70,45 +113,107 @@
         <div class="team" id="team2">@Model.AwayTeam.NameOfTeam</div>
     </div>
 
-    <div class="event-column"></div>
-
+    <div class="event-box">
+        <div class="event-column" id="events-team-1">
+            <div class="event"></div>
+        </div>
+        <div class="event-column" id="events-team-2">
+            <div class="event"></div>
+        </div>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Select the event column
-            const eventColumn = document.querySelector('.event-column');
+            const eventColumn_team1 = document.querySelector('#events-team-1');
+            const eventColumn_team2 = document.querySelector('#events-team-2');
 
-            // Function to add a new event to the column
+            // Function to add a new event to the specific column
             function addEvent(eventText) {
                 // Create a new event element
                 const eventElement = document.createElement('div');
-                const $team1 = $('.team1');
-                const $team2 = $('.team2');
+                const $team1 = $('.team#team1');
+                const $team2 = $('.team#team2');
                 const $team1Score = $('.score:eq(0)');
                 const $team2Score = $('.score:eq(1)');
+
                 eventElement.classList.add('event');
-                if (eventText.includes(" scored a goal ")) {
-                    console.log("Team 1 scored a goal!");
-                    eventElement.classList.add('goal');
-                    $team1Score.text(parseInt($team1Score.text()) + 1);
+                
+                // Checks which team has the event
+                if (eventText.includes($team1.text())) {
+                    
+                    // Logs a message to the console
+                    console.log("Event for home team!");
+
+                    // Add the goal class to the event element if the event is a goal
+                    if (eventText.includes("goal") || eventText.includes('Penalty') || eventText.includes('free kick') || eventText.includes('scores')) {
+                        eventElement.classList.add('goal', 'flash-goal'); // make the event goal type
+                        $team1Score.text(parseInt($team1Score.text()) + 1); // increment the score
+                    }
+
+                    eventElement.textContent = eventText;
+
+                    // Add the event element to the column
+                    eventColumn_team1.appendChild(eventElement);
+
+                    // Add the same event but invisible to the other team
+                    const invisibleEventElement = eventElement.cloneNode(true);
+                    invisibleEventElement.style.visibility = 'hidden';
+                    eventColumn_team2.appendChild(invisibleEventElement);
                 }
                 else {
-                    if (eventText.includes(" scored goal")) {
-                        console.log("Team 2 scored a goal!");
-                        eventElement.classList.add('goals');
-                        $team2Score.text(parseInt($team2Score.text()) + 1);
+                    if (eventText.includes($team2.text())) {
+
+                        // Logs a message to the console
+                        console.log("Event for away team");
+
+                        // Add the goal class to the event element if the event is a goal
+                        if (eventText.includes("goal") || eventText.includes('Penalty') || eventText.includes('free kick') || eventText.includes('scores')) {
+                            eventElement.classList.add('goal', 'flash-goal'); // make the event goal type
+                            $team2Score.text(parseInt($team2Score.text()) + 1); // increment the score
+                        }
+
+                        eventElement.textContent = eventText;
+
+                        // Add the event element to the column
+                        eventColumn_team2.appendChild(eventElement); 
+
+                        // Add the same event but invisible to the other team
+                        const invisibleEventElement = eventElement.cloneNode(true);
+                        invisibleEventElement.style.visibility = 'hidden';
+                        eventColumn_team1.appendChild(invisibleEventElement);
+
                     }
                 }
-                eventElement.textContent = eventText;
 
-                // Add the event element to the column
-                eventColumn.appendChild(eventElement);
+                // Scroll to the bottom of the columns
+                eventColumn_team1.scrollTop = eventColumn_team1.scrollHeight;
+                eventColumn_team2.scrollTop = eventColumn_team2.scrollHeight;
+
+                // Repeat the flash animation every 0.2 seconds within the 2-second duration
+                if (eventElement.classList.contains('goal')) {
+                    const duration = 2000;
+                    const interval = 200;
+                    let elapsed = 0;
+                    const flashInterval = setInterval(() => {
+                        if (elapsed >= duration) {
+                            clearInterval(flashInterval);
+                            eventElement.classList.remove('flash-goal');
+                        } else {
+                            eventElement.classList.toggle('flash-goal');
+                            elapsed += interval;
+                        }
+                    }, interval);
+                }
             }
 
+            // Increments the score of the given team
             function scoreGoal(team) {
                 score += 1;
                 team.textContent = score;
             }
 
+            // Increments the minute
             function incrementMinute() {
                if(minute < 90){
                     minute += 1;
@@ -126,7 +231,6 @@
                 for (const event of events) {
                     setTimeout(() => {
                         addEvent(event);
-
                     }, delay);
                     delay += 5000;
                 }
@@ -134,12 +238,12 @@
                 console.error('ViewBag.Events is not an array or is undefined/null');
             }
 
-            //call incrementMinute function every second
+            //call incrementMinute function every 1.1 seconds
             const minuteElement = document.querySelector('#minute');
             let minute = 0;
             setInterval(() => {
                 incrementMinute();
-            }, 1000);
+            }, 1100);
 
         });
     </script>

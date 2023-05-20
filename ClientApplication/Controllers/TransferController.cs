@@ -25,32 +25,52 @@ namespace ClientApplication.Controllers
                 var user = _context.Users.FirstOrDefault(u => u.Username == username);
                 int userID = user.UserId;
 
-                //Remove the transfer from the available transfers by attaching a buying user
+                // Check if the user has enough money to buy the player
                 var happeningTransfer = _context.Transfers.FirstOrDefault(t => t.TransferId == transferId);
-                
-                happeningTransfer.BuyingUserId = userID;
 
-                // Update the player's contract so that the player is now owned by the buying user
-                var player = _context.Players.FirstOrDefault(p => p.PlayerId == happeningTransfer.PlayerId);
-                var teamContract = _context.TeamContracts.FirstOrDefault(tc => tc.PlayerId == player.PlayerId && tc.SquadId == happeningTransfer.SellingUserId);
+                if (user.Coins < happeningTransfer.TransferFee)
+                {
+                    return RedirectToAction("TransferError");
+                }
+                else
+                {
+                    //Remove the transfer from the available transfers by attaching a buying user
+                    happeningTransfer.BuyingUserId = userID;
 
-                teamContract.SquadId = userID;
-                teamContract.Position = 19; // 19 is the position for a player that does not have a role in the team
-                
-                // Solve all money issues (selling user gets money, buying user loses money)
-                var sellingUser = _context.Users.FirstOrDefault(u => u.UserId == happeningTransfer.SellingUserId);
-                user.Coins -= happeningTransfer.TransferFee;
-                sellingUser.Coins += happeningTransfer.TransferFee;
+                    // Update the player's contract so that the player is now owned by the buying user
+                    var player = _context.Players.FirstOrDefault(p => p.PlayerId == happeningTransfer.PlayerId);
+                    var teamContract = _context.TeamContracts.FirstOrDefault(tc => tc.PlayerId == player.PlayerId && tc.SquadId == happeningTransfer.SellingUserId);
 
-                // Updates coins viewbag fo coin display
-                ViewBag.wallet = user.Coins;
+                    teamContract.SquadId = userID;
+                    teamContract.Position = 19; // 19 is the position for a player that does not have a role in the team
 
-                _context.SaveChanges();
+                    // Solve all money issues (selling user gets money, buying user loses money)
+                    var sellingUser = _context.Users.FirstOrDefault(u => u.UserId == happeningTransfer.SellingUserId);
+                    user.Coins -= happeningTransfer.TransferFee;
+                    sellingUser.Coins += happeningTransfer.TransferFee;
+
+                    // Add the username to the viewbag
+                    ViewBag.username = HomeController.GetUserName(HttpContext);
+                    // Updates coins viewbag fo coin display
+                    ViewBag.wallet = user.Coins;
+
+                    _context.SaveChanges();
+                }
             }
             catch (NullReferenceException)
             {
                 return RedirectToAction("Login", "Access"); // Should only happen if the user is not logged in
             } 
+            return View();
+        }
+
+        // View if the user doesn't have enough coins
+        public IActionResult TransferError()
+        {
+            // Add nr of coins to the wallet
+            ViewBag.wallet = getMoney();
+            // Add the username to the viewbag
+            ViewBag.username = HomeController.GetUserName(HttpContext);
             return View();
         }
 
@@ -81,6 +101,9 @@ namespace ClientApplication.Controllers
             // Add nr of coins to the wallet
             ViewBag.wallet = getMoney();
 
+            // Add the username to the viewbag
+            ViewBag.username = HomeController.GetUserName(HttpContext);
+
             return View(transfers);
         }
 
@@ -105,6 +128,12 @@ namespace ClientApplication.Controllers
                 List<Player> playersNotInFirstTeam = players.Where(p => p.TeamContracts.Any(tc => tc.Position == 19 && tc.SquadId == userID)).ToList();
 
                 ViewData["Players"] = new SelectList(playersNotInFirstTeam, "PlayerId", "Name");
+
+                // Add nr of coins to the wallet
+                ViewBag.wallet = getMoney();
+                // Add the username to the viewbag
+                ViewBag.username = HomeController.GetUserName(HttpContext);
+
 
                 return View(playersNotInFirstTeam);
             }

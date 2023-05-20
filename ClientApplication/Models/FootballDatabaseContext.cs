@@ -300,8 +300,9 @@ public partial class FootballDatabaseContext : DbContext
             entity.Property(e => e.GoalsFor).HasColumnName("goals_for");
             entity.Property(e => e.MatchesDrawn).HasColumnName("matches_drawn");
             entity.Property(e => e.MatchesPlayed).HasColumnName("matches_played");
+            entity.Property(e => e.MatchesLost).HasColumnName("matches_lost");
             entity.Property(e => e.MatchesWon).HasColumnName("matches_won");
-            entity.Property(e => e.Points).HasColumnName("points");
+            entity.Property(e => e.Trophies).HasColumnName("trophies");
             entity.Property(e => e.Position).HasColumnName("position");
             entity.Property(e => e.UserId).HasColumnName("user_id");
 

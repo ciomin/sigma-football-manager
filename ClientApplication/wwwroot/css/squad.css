@@ -18,8 +18,8 @@ h2 {
 
 .right {
     width: 100%;
-    background-image: url("pitch.png");
     background-repeat: no-repeat;
+    background-image: url(images/pitch.png);
     background-size: 100% 100%;
     background-position-x: center;
     background-position-y: top;
@@ -105,36 +105,36 @@ h2 {
 
 .CM1{
     position: absolute;
-    top: 37%;
+    top: 38%;
     left: 35%;
 }
 
 .CM2{
     position: absolute;
-    top: 40%;
+    top: 41%;
     left: 47.5%;
 }
 
 .CM3{
     position: absolute;
-    top: 37%;
+    top: 38%;
     left: 60%;
 }
 
 .LW {
     position: absolute;
-    top: 20%;
+    top: 21%;
     left: 30%;
 }
 
 .ST {
     position: absolute;
-    top: 15%;
+    top: 16%;
     left: 48%;
 }
 
 .RW {
     position: absolute;
-    top: 20%;
+    top: 21%;
     left: 65%;
 }

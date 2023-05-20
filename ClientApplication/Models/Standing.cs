@@ -17,11 +17,13 @@ public partial class Standing
 
     public int MatchesDrawn { get; set; }
 
+    public int MatchesLost { get; set; }
+
     public int GoalsFor { get; set; }
 
     public int GoalsAgainst { get; set; }
 
-    public int Points { get; set; }
+    public int Trophies { get; set; }
 
     public virtual User User { get; set; } = null!;
 }
