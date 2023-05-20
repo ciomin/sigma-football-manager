@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pExVDGlyvn1/dHjOCPty0Y8jJh37f6fCre9+1XEHhpQ=",
+  "Hash": "b08kv3Bn9YKKRrgQbhNUFJ1L0Hov2oVWXdZRe6lKiP0=",
   "Source": "ClientApplication",
   "BasePath": "_content/ClientApplication",
   "Mode": "Default",
@@ -253,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\images\\iconSquad.png"
+    },
+    {
+      "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\iconStandings.png",
+      "SourceId": "ClientApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\",
+      "BasePath": "_content/ClientApplication",
+      "RelativePath": "css/images/iconStandings.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\images\\iconStandings.png"
     },
     {
       "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\iconStore.png",

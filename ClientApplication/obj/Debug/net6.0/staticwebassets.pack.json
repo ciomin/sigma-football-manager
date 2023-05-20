@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\css\\images\\iconSquad.png"
     },
     {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\iconStandings.png",
+      "PackagePath": "staticwebassets\\css\\images\\iconStandings.png"
+    },
+    {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\images\\iconStore.png",
       "PackagePath": "staticwebassets\\css\\images\\iconStore.png"
     },

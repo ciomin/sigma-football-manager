@@ -16,6 +16,7 @@ namespace ClientApplication
             builder.Services.AddDbContext<FootballDatabaseContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("FootballDatabaseContext")));
 
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 

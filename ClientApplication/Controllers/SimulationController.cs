@@ -1,4 +1,4 @@
-﻿using ClientApplication.Models;
+﻿ using ClientApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -89,8 +89,6 @@ namespace ClientApplication.Controllers
         //  initialised the size of the List accordingly. This can be further increased or decreased, based on the
         //  frequency that we want our application to generate events.
         List<string> simulationEvents = new List<string>(18);
-        int homeScore = 0;
-        int awayScore = 0;
 
         //      _context is our current database context
         private readonly FootballDatabaseContext _context;
@@ -147,48 +145,72 @@ namespace ClientApplication.Controllers
                 }
             }
 
-            match.AwayGoals = awayScore;
-            match.HomeGoals = homeScore;
+            match.HomeGoals = homeTeam.Score;
+            match.AwayGoals = awayTeam.Score;
 
             // Serialize the list of strings to JSON
             string EventsJson = JsonConvert.SerializeObject(simulationEvents.ToArray());
             match.Events = EventsJson;
 
-            // Create or update the standings
-            UpdateOrCreateStanding(match);
+            // Save the changes to the database 
+            _context.SaveChanges();
 
-            // Save the changes to the database
+            // Create or update the standings
+            // UpdateOrCreateStandingAsync(match);
+
+            // Create or update the standings
+            
+            //Find the standing for the home team
+            Standing homeTeamStanding = _context.Standings.FirstOrDefault(m => m.UserId == match.HomeTeamId);
+            Standing awayTeamStanding = _context.Standings.FirstOrDefault(m => m.UserId == match.AwayTeamId);
+
+            //If the home team standing is null, create a new one
+            if (homeTeamStanding == null)
+            {
+                Standing newStanding = new Standing();
+                newStanding.StandingsId = match.HomeTeamId;
+                newStanding.Position = _context.Standings.Count() + 1;
+                newStanding.UserId = match.HomeTeamId;
+                newStanding.MatchesPlayed = 0;
+                newStanding.Trophies = 0;
+                newStanding.MatchesWon = 0;
+                newStanding.MatchesLost = 0;
+                newStanding.MatchesDrawn = 0;
+                
+                _context.Standings.Add(newStanding);
+
+                // Save the changes to the database
+                _context.SaveChanges();
+
+                homeTeamStanding = newStanding;
+            }
+
+            //If the away team standing is null, create a new one
+            if (awayTeamStanding == null)
+            {
+                Standing newStanding = new Standing();
+                newStanding.StandingsId = match.AwayTeamId;
+                newStanding.Position = _context.Standings.Count() + 1;
+                newStanding.UserId = match.AwayTeamId;
+                newStanding.MatchesPlayed = 0;
+                newStanding.Trophies = 0;
+                newStanding.MatchesWon = 0;
+                newStanding.MatchesLost = 0;
+                newStanding.MatchesDrawn = 0;
+                _context.Standings.Add(newStanding);
+                awayTeamStanding = newStanding;
+            }
+
+            // Update the standings
+            SetStanding(homeTeamStanding, match.HomeGoals, match.AwayGoals);
+            SetStanding(awayTeamStanding, match.AwayGoals, match.HomeGoals);
+
+            // Save the changes to the database 
             _context.SaveChanges();
         }
 
-
-        private void UpdateOrCreateStanding(Match match)
-        {
-            foreach (Standing standing in _context.Standings)
-            {
-                if (match.HomeTeam.UserId == standing.UserId)
-                {
-                    SetStanding(standing, homeScore, awayScore);
-                }
-                else
-                {
-                    Standing newStanding = new Standing();
-                    SetStanding(newStanding, homeScore, awayScore);
-                }
-                if (match.AwayTeam.UserId == standing.UserId)
-                {
-                    SetStanding(standing, awayScore, homeScore);
-                }
-                else
-                {
-                    Standing newStanding = new Standing();
-                    SetStanding(newStanding, awayScore, homeScore);
-                }
-            }
-        }
-
         private void SetStanding(Standing standing, int homeScore, int awayScore)
-        {
+        { 
             standing.MatchesPlayed++;
             standing.GoalsFor += homeScore;
             standing.GoalsAgainst += awayScore;
@@ -197,27 +219,17 @@ namespace ClientApplication.Controllers
                 standing.MatchesWon++;
                 standing.Trophies += 10;
                 _context.Users.FirstOrDefault(m => m.UserId == standing.UserId).Coins += 100;
-
-                // Save changes to db
-                _context.SaveChanges();
             }
             else if (homeScore == awayScore)
             {
                 standing.MatchesDrawn++;
                 _context.Users.FirstOrDefault(m => m.UserId == standing.UserId).Coins += 50;
-
-                // Save changes to db
-                _context.SaveChanges();
-
             }
             else
             {
                 standing.MatchesLost++;
                 standing.Trophies -= 3;
                 _context.Users.FirstOrDefault(m => m.UserId == standing.UserId).Coins += 10;
-                
-                // Save changes to db
-                _context.SaveChanges();
             }
         }
 

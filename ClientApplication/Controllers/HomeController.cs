@@ -188,6 +188,17 @@ namespace ClientApplication.Controllers
             // Get all standings from the database
             List<Standing> standings = _context.Standings.ToList();
             
+            // Order the standings by trophies
+            standings = standings.OrderByDescending(s => s.Trophies).ToList();
+
+            // Save the position in the list to the standing position
+            int position = 1;
+            foreach(Standing item in standings)
+            {
+                item.Position = position;
+                position++;
+            }
+
             foreach(Standing item in standings)
             {
                 // Bind the user to his standing element
