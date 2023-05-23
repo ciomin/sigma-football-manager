@@ -2,34 +2,32 @@
 const regularButton = document.getElementById("regular-pack")
 const expensiveButton = document.getElementById("expensive-pack")
 
-const currency = document.getElementById("coin-counter")
+const currency = document.getElementById("wallet")
 
 const cardView = document.getElementById("card-view")
-
-currency.innerHTML = "Remaining coins: " + wallet;
 
 const cheapPack = {
     price: 500,
     rarity: 0,
-    commonChance: 0.75,
-    regularChance: 0.2,
+    commonChance: 0.85,
+    regularChance: 0.10,
     rareChance: 0.05
 }
 
 const regularPack = {
     price: 1000,
     rarity: 1,
-    commonChance: 0.15,
-    regularChance: 0.70,
-    rareChance: 0.15
+    commonChance: 0.05,
+    regularChance: 0.85,
+    rareChance: 0.10
 }
 
 const expensivePack = {
     price: 2500,
     rarity: 2,
     commonChance: 0.05,
-    regularChance: 0.25,
-    rareChance: 0.70
+    regularChance: 0.15,
+    rareChance: 0.80
 }
 
 cheapButton.addEventListener("click", function () { buyDeck(cheapPack) })
@@ -56,7 +54,7 @@ function buyDeck(pack) {
             }
         });
 
-        currency.innerHTML = "Coins: " + wallet;
+        currency.innerHTML = wallet;
 
 
         var cardsGot = selCards(pack.commonChance, pack.regularChance, pack.rareChance)
@@ -144,7 +142,7 @@ function clearCardView() {
 function displayCards(plyrs) {
     var tmp = ""
     for (var i = 0; i < 5; i++) {
-        tmp = tmp + "<div class=\"rectangle\" style=\"background-color:" + plyrs[i].col + "\" >" + plyrs[i].fName + "</br>" + plyrs[i].lName + "</br></br>Attacking:" + plyrs[i].atk + "</br>MidControl:" + plyrs[i].mct + "</br>Deffensive:" + plyrs[i].def +" </div>"
+        tmp = tmp + "<div class=\"rectangle\" style=\"background-color:" + plyrs[i].col + "\" >" + plyrs[i].fName + "</br>" + plyrs[i].lName + "</br></br>Attacking:" + plyrs[i].atk + "</br>MidControl:" + plyrs[i].mct + "</br>Deffending:" + plyrs[i].def +" </div>"
     }
     cardView.innerHTML = "<div class=\"overlay\"><div style=\"position: fixed;left: 15%;top: 15%;width: 100 %;height: 100 %; \"> " + tmp + "</br><button id=\"close\" style=\"z-index:30;\" onclick=\"clearCardView()\">Back to shop</button></div></div>"
 }

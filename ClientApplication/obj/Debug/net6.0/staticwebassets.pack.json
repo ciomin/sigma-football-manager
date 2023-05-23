@@ -117,20 +117,40 @@
       "PackagePath": "staticwebassets\\css\\legends\\jose.png"
     },
     {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\joseWin.png",
+      "PackagePath": "staticwebassets\\css\\legends\\joseWin.png"
+    },
+    {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\leo.png",
       "PackagePath": "staticwebassets\\css\\legends\\leo.png"
+    },
+    {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\lukaWin.png",
+      "PackagePath": "staticwebassets\\css\\legends\\lukaWin.png"
     },
     {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\maguire.png",
       "PackagePath": "staticwebassets\\css\\legends\\maguire.png"
     },
     {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\neyLoss.png",
+      "PackagePath": "staticwebassets\\css\\legends\\neyLoss.png"
+    },
+    {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\pep.png",
       "PackagePath": "staticwebassets\\css\\legends\\pep.png"
     },
     {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\pepklopp.png",
+      "PackagePath": "staticwebassets\\css\\legends\\pepklopp.png"
+    },
+    {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\perez.png",
       "PackagePath": "staticwebassets\\css\\legends\\perez.png"
+    },
+    {
+      "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\simeoneLoss.png",
+      "PackagePath": "staticwebassets\\css\\legends\\simeoneLoss.png"
     },
     {
       "Id": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\zidane.png",

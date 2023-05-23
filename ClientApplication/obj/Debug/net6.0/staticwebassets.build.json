@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "b08kv3Bn9YKKRrgQbhNUFJ1L0Hov2oVWXdZRe6lKiP0=",
+  "Hash": "NGUlwUbsIVRSPfThHbPcAfGFjT131lxsKkcoW5kU4eQ=",
   "Source": "ClientApplication",
   "BasePath": "_content/ClientApplication",
   "Mode": "Default",
@@ -527,6 +527,23 @@
       "OriginalItemSpec": "wwwroot\\css\\legends\\jose.png"
     },
     {
+      "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\joseWin.png",
+      "SourceId": "ClientApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\",
+      "BasePath": "_content/ClientApplication",
+      "RelativePath": "css/legends/joseWin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\legends\\joseWin.png"
+    },
+    {
       "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\leo.png",
       "SourceId": "ClientApplication",
       "SourceType": "Discovered",
@@ -542,6 +559,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\legends\\leo.png"
+    },
+    {
+      "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\lukaWin.png",
+      "SourceId": "ClientApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\",
+      "BasePath": "_content/ClientApplication",
+      "RelativePath": "css/legends/lukaWin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\legends\\lukaWin.png"
     },
     {
       "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\maguire.png",
@@ -561,6 +595,23 @@
       "OriginalItemSpec": "wwwroot\\css\\legends\\maguire.png"
     },
     {
+      "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\neyLoss.png",
+      "SourceId": "ClientApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\",
+      "BasePath": "_content/ClientApplication",
+      "RelativePath": "css/legends/neyLoss.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\legends\\neyLoss.png"
+    },
+    {
       "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\pep.png",
       "SourceId": "ClientApplication",
       "SourceType": "Discovered",
@@ -578,6 +629,23 @@
       "OriginalItemSpec": "wwwroot\\css\\legends\\pep.png"
     },
     {
+      "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\pepklopp.png",
+      "SourceId": "ClientApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\",
+      "BasePath": "_content/ClientApplication",
+      "RelativePath": "css/legends/pepklopp.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\legends\\pepklopp.png"
+    },
+    {
       "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\perez.png",
       "SourceId": "ClientApplication",
       "SourceType": "Discovered",
@@ -593,6 +661,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\legends\\perez.png"
+    },
+    {
+      "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\simeoneLoss.png",
+      "SourceId": "ClientApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\",
+      "BasePath": "_content/ClientApplication",
+      "RelativePath": "css/legends/simeoneLoss.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\legends\\simeoneLoss.png"
     },
     {
       "Identity": "C:\\Users\\40741\\source\\repos\\FootballManager_v0.1\\ClientApplication\\wwwroot\\css\\legends\\zidane.png",

@@ -98,7 +98,7 @@
 <body>
     <!-- The scoreboard -->
     <div class="scoreboard" style="margin-bottom:0px; height: 10%; font-size:100%; text-align:center">
-        Refferee for this match is: @Model.Referee.FirstName @Model.Referee.LastName
+        Referee for this match is: @Model.Referee.FirstName @Model.Referee.LastName
         <br />
         Stadium: @Model.Stadium.Name
     </div>
@@ -221,6 +221,11 @@
                }
                else{
                     minuteElement.textContent = `Full Time`;
+                    
+                    // Wait 5 seconds before redirecting to the match report
+                    setTimeout(() => {
+                        window.location.href = '@Url.Action("AfterGame", "Game")';
+                    }, 5000);
                }
             }
 

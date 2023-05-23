@@ -37,9 +37,18 @@ namespace FootballManager_v0._1.Controllers
         public async Task<IActionResult> Create([Bind("AdminId,Post")] News news)
         {
             // Autogenerate a new id
-            int maxId = _context.News.Max(n => n.NewsId);
-            news.NewsId = maxId + 1;
 
+            // If the db is empty, set the id to 1
+            if (_context.News.Count() == 0)
+            {
+                news.NewsId = 1;
+            }
+            // Otherwise, set the id to the max id + 1
+            else
+            {
+                int maxId = _context.News.Max(n => n.NewsId);
+                news.NewsId = maxId + 1;
+            }
             // Add the news to the db
             _context.Add(news);
             await _context.SaveChangesAsync();

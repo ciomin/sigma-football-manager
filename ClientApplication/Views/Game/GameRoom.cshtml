@@ -78,6 +78,17 @@
                 console.log('MatchFound:', data.matchFound); // Log the MatchFound flag in the console
                 if (data.matchFound) {
                     var id = data.matchId; // Match Id
+
+                    // Deletes the wait flag for the user
+                    $.ajax({
+                        url: '@Url.Action("DeleteWaitFlag", "Game")',
+                        type: 'GET',
+                        data: { userId: userId }, // Pass the userId as a parameter
+                        success: function (data) {
+                            console.log('WaitFlagReset:', data.waitFlagReset); // Log the WaitFlagReset flag in the console
+                        }
+                    });
+
                     window.location.href = "/Game/GameSession?matchId=" + id; // Redirect to the simulation page with the ID parameter
                 }
             }

@@ -1,13 +1,14 @@
 ﻿function slist(target) {
     // Gets the list of players and adds the css class to it
     target.classList.add("slist");
+
     let items = target.getElementsByTagName("li"), current = null;
 
     for (let i of items) {
         //Make all items draggable
         i.draggable = true;
 
-        // On drag start change color
+        // On drag start change color of all items except the one being dragged
         i.ondragstart = e => {
             current = i;
             for (let it of items) {
@@ -61,7 +62,7 @@
                         droppedContractId: droppedContractId
                     },
                     success: function (data) {
-                        // Update the player positions dynamically (thank you GPT)
+                        // Update the player positions dynamically
 
                         // Swap the html attributes of the two items
                         const tempHTML = current.innerHTML; // stores the current innerHTML of the current item (all html and csss attributes)

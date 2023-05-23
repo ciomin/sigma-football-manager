@@ -522,7 +522,7 @@ namespace ClientApplication.Controllers
                     simulationValue = CounterAttack();
                     if (simulationValue >= 0)
                     {
-                        simulationEvents.Add("Sensational goal scored by " + GoalScorer(SelectPlayers(homeTeam)) + " for "
+                        simulationEvents.Add("Sensational goal scored by " + GoalScorer(SelectPlayers(awayTeam)) + " for "
                                      + awayTeam.TeamName + " on a counter attack!");
                         awayTeam.Score++;
                     }

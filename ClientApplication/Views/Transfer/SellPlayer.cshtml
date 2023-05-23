@@ -23,6 +23,7 @@
         <label for="playerPrice">Set the transfer fee you want to recieve: </label>
         <br /><br />
         <input type="number" id="playerPrice" name="TransferFee" min="0" max="10000" />
+        <span id="invalidPrice" style="color:red;"></span>
         <br /><br />
         <button class ="accessButton" data-open-modal>Place him on the market!</button>
     </form>
@@ -53,6 +54,20 @@
         // Opens a dialog with a nice message
         createTeamButton.addEventListener('click', () => {
             event.preventDefault(); // prevent the default form submission behavior
+            
+            // Check if the playerPrice is > 0
+            if (document.getElementById("playerPrice").value <= 0) { 
+                // Write a message in the invalidPrice span
+                document.getElementById("invalidPrice").innerHTML = "Price value must be a positive number!";
+                return;
+            } else {
+                if (document.getElementById("playerPrice").value > 999999){
+                    // Write a message in the invalidPrice span
+                    document.getElementById("invalidPrice").innerHTML = "Price value must be a number smaller than 999999!";
+                    return;
+                }
+            }
+            
             dialog.showModal()
         })
 

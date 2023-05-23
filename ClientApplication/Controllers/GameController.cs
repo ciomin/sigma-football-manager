@@ -29,18 +29,23 @@ namespace ClientApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> JoinMatchmakingAsync(int mentality)
         {
+            int userID = 0;
             // Get the id of the user that is currently logged in
             var username = HomeController.GetUserName(HttpContext);
+
+            if (username == null)
+                return RedirectToAction("Login", "Access");
+
             var user = _context.Users.FirstOrDefault(u => u.Username == username);
-            int userID = user.UserId;
+            userID = user.UserId;
 
             // If user is already in the waiting list, redirect him to the matchmaking page
             if (_waitingRequests.Contains(userID))
                 return RedirectToAction("GameRoom");
-
-            // Add the user to the waiting list
+   
             lock (_waitingRequests)
             {
+                // Add the user to the waiting list
                 _waitingMentalities.Add(mentality);
                 _waitingRequests.Add(userID);
 
@@ -121,6 +126,7 @@ namespace ClientApplication.Controllers
         }
 
 
+        // The actual simulation, both users will be redirected to this page
         [HttpGet]
         public async Task<IActionResult> GameSession(string matchId)
         {
@@ -155,15 +161,21 @@ namespace ClientApplication.Controllers
             return View(match);
         }
 
+
+        // Simple menu for the user to select the mentality of his team and join a matchmaking queue
         [HttpGet]
         public IActionResult GameMenu()
         {
+            // Get the id of the user that is currently logged in
+            var username = HomeController.GetUserName(HttpContext);
+
+            if (username == null)
+                return RedirectToAction("Login", "Access");
+            
+            ViewBag.username = username;
+
             // Add nr of coins to the wallet
             ViewBag.wallet = getMoney();
-
-            // Add the username to the viewbag
-            ViewBag.username = HomeController.GetUserName(HttpContext);
-
             return View();
         }
 
@@ -207,12 +219,79 @@ namespace ClientApplication.Controllers
             }
         }
 
+        // Deletes the flag variable for the user
+        [HttpGet]
+        public IActionResult DeleteWaitFlag(int userId)
+        {
+            MatchmakingWait waitFlag = waitFlags.FirstOrDefault(w => w.UserId == userId);
+            
+            // Delete the flag variable
+            waitFlags.Remove(waitFlag);
+
+            return Json(new { success = true });
+        }
+
+        [HttpGet]
+        public IActionResult AfterGame()
+        {
+            // Add nr of coins to the wallet
+            ViewBag.wallet = getMoney();
+
+            // Get the username if the user is logged in
+            var userName = HomeController.GetUserName(HttpContext);
+            if(userName == null)
+            {
+                return RedirectToAction("Login", "Access");
+            }
+
+            // Add the username to the viewbag
+            ViewBag.username = userName;
+
+            // Get the user's id
+            var user = _context.Users.FirstOrDefault(u => u.Username == userName);
+            if (user != null)
+            {
+                var match = _context.Matches
+                        .Where(m => m.HomeTeamId == user.UserId || m.AwayTeamId == user.UserId)
+                        .OrderBy(m => m.MatchId) // Add an OrderBy operation
+                        .LastOrDefault();
+                if (match != null)
+                {
+                    // If the user was away team, swap the home and away team
+                    if (match.AwayTeamId == user.UserId)
+                    {
+                        var temp = match.HomeTeamId;
+                        // Swap id's
+                        match.HomeTeamId = match.AwayTeamId;
+                        match.AwayTeamId = temp;
+
+                        // Swap Scores
+                        var tempScore = match.HomeGoals;
+                        match.HomeGoals = match.AwayGoals;
+                        match.AwayGoals = tempScore;
+                    }
+
+                    // Return a view that displays the results of the match
+                    return View(match);
+                }
+            }
+            return View();
+        }
+
         public int getMoney()
         {
-            var userName = HomeController.GetUserName(HttpContext);
-            var user = _context.Users.FirstOrDefault(u => u.Username == userName);
-
-            return user.Coins;
+            // Check is user is logged in
+            if (HomeController.GetUserName(HttpContext) == null)
+            {
+                return 0;
+            }
+            else
+            {
+                // Get the user's coins
+                var userName = HomeController.GetUserName(HttpContext);
+                var user = _context.Users.FirstOrDefault(u => u.Username == userName);
+                return user.Coins;
+            }
         }
     }
 

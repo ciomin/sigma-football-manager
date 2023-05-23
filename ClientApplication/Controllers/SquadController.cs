@@ -15,14 +15,6 @@ namespace ClientApplication.Controllers
             _context = context;
         }
 
-        public int getMoney()
-        {
-            var userName = HomeController.GetUserName(HttpContext);
-            var user = _context.Users.FirstOrDefault(u => u.Username == userName);
-
-            return user.Coins;
-        }
-
         [HttpGet]
         public async Task<IActionResult> Editor()
         {
@@ -54,6 +46,22 @@ namespace ClientApplication.Controllers
             catch (NullReferenceException)
             {
                 return RedirectToAction("Login", "Access");
+            }
+        }
+
+        public int getMoney()
+        {
+            // Check is user is logged in
+            if (HomeController.GetUserName(HttpContext) == null)
+            {
+                return 0;
+            }
+            else
+            {
+                // Get the user's coins
+                var userName = HomeController.GetUserName(HttpContext);
+                var user = _context.Users.FirstOrDefault(u => u.Username == userName);
+                return user.Coins;
             }
         }
     }

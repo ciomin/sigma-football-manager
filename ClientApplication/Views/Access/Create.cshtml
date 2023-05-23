@@ -24,22 +24,27 @@
             {
                 <br />
                 <br />
-                <label>@ViewData["ValidateMessage"]</label>
+                <label id="validation">@ViewData["ValidateMessage"]</label>
             }
         </div>
     </form>
 
-    <dialog data-modal style=" 
+    <dialog data-modal style="  color: white;
                                 padding: 24px;
                                 border: 1px solid #dfdfdf;
                                 background-color: #000099;
                                 width: 100%;
-                                text-align: center;">
-        <h2 style="color:white">
-            Your team has been succesfully created! <br />You can find your new players in the 'Squad' menu. Good luck manager!
-        </h2>
+                                text-align: center;
+                                margin-bottom: 17%;
+                                border-left: none;">
         <br />
-        <button class="accessButton" data-close-modal> Start your journey! </button>
+        <h2>
+            Your team has been successfully created! <br /> <br /> You can find your new players in the "Squad" menu. See "Shop" or "Transfer market" to buy
+            new players and improve your team. When you are ready, you can test your team against other managers from the "Game" menu.<br />
+            <br />
+            Good luck manager!
+        </h2>
+        <button class="accessButton" style="font-size: 150%; padding: 1.5%;" data-close-modal> Start your journey! </button>
     </dialog>
 
     <script>
@@ -47,10 +52,19 @@
         const closeButton = document.querySelector('[data-close-modal]')
         const dialog = document.querySelector('[data-modal]')
 
+        // Select the text from the input field
+        const input = document.querySelector('.textContainer')
+
         // Opens a dialog with a nice message
         createTeamButton.addEventListener('click', () => {
             event.preventDefault(); // prevent the default form submission behavior
-            dialog.showModal()
+            // Check if the input field is empty
+            if (input.value == "") {
+                // Write a corresponding message in the validation field
+                document.getElementById("validation").innerHTML = "You must choose a name for your team!";
+            } else {
+                dialog.showModal();
+            }
         })
 
         // Closes the dialog and submits the form causing redirect to the main page

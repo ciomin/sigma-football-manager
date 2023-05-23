@@ -71,14 +71,22 @@ namespace ClientApplication.Controllers
             ViewBag.wallet = getMoney();
             // Add the username to the viewbag
             ViewBag.username = HomeController.GetUserName(HttpContext);
+            
             return View();
         }
 
         [HttpGet]
         public IActionResult TransferList(string searchString)
         {
-            //Perform database query to retrieve all unsold Transfers from transfer table
+            // Add the username to the viewbag if he is logged in
+            string username = HomeController.GetUserName(HttpContext);
+            if (username == null)
+            {
+                return RedirectToAction("Login", "Access");
+            }
+            ViewBag.username = username;
 
+            //Perform database query to retrieve all unsold Transfers from transfer table
             // All unsold transfers
             var transfers = _context.Transfers
                 .Include(t => t.Player)
@@ -100,9 +108,6 @@ namespace ClientApplication.Controllers
 
             // Add nr of coins to the wallet
             ViewBag.wallet = getMoney();
-
-            // Add the username to the viewbag
-            ViewBag.username = HomeController.GetUserName(HttpContext);
 
             return View(transfers);
         }
@@ -191,10 +196,19 @@ namespace ClientApplication.Controllers
 
         public int getMoney()
         {
-            var userName = HomeController.GetUserName(HttpContext);
-            var user = _context.Users.FirstOrDefault(u => u.Username == userName);
 
-            return user.Coins;
+            // Check is user is logged in
+            if (HomeController.GetUserName(HttpContext) == null)
+            {
+                return 0;
+            }
+            else
+            {
+                // Get the user's coins
+                var userName = HomeController.GetUserName(HttpContext);
+                var user = _context.Users.FirstOrDefault(u => u.Username == userName);
+                return user.Coins;
+            }
         }
     }
 }

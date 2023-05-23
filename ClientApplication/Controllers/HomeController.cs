@@ -32,14 +32,6 @@ namespace ClientApplication.Controllers
 			return View();
         }
 
-        public int getMoney()
-        {
-			var userName = GetUserName(HttpContext);
-			var user = _context.Users.FirstOrDefault(u => u.Username == userName);
-
-			return user.Coins;
-        }
-
         [HttpPost]
         public IActionResult updateMoney(int value)
         {
@@ -74,7 +66,7 @@ namespace ClientApplication.Controllers
 
 			foreach (Player p in plist)
 			{
-				if (p.OverallRank > 75 && p.OverallRank < 80)
+				if (p.OverallRank > 75 && p.OverallRank < 81)
 				{
 					list.Add(p);
 				}
@@ -89,7 +81,7 @@ namespace ClientApplication.Controllers
 
 			foreach (Player p in plist)
 			{
-				if (p.OverallRank >= 80)
+				if (p.OverallRank >= 81)
 				{
 					list.Add(p);
 				}
@@ -105,7 +97,8 @@ namespace ClientApplication.Controllers
             var squad = _context.Squads.FirstOrDefault(s => s.UserId == user.UserId);
             var contract = new TeamContract();
 
-            int cNumber = _context.TeamContracts.Count() + 1;
+            // Generate a new Id y 
+            int cNumber = _context.TeamContracts.Max(c => c.ContractId) + 1;
 
             foreach(int id in playerIds)
             {
@@ -173,9 +166,9 @@ namespace ClientApplication.Controllers
             var news = _context.News.ToList();
 
             var userName = GetUserName(HttpContext);
-            // Store username to viewbag
+            // Store username to viewbag (for the NavBar)
             ViewBag.UserName = userName;
-            // Store the nr of coins to viewbag
+            // Store the nr of coins to viewbag (for the NavBar)
             ViewBag.wallet = getMoney();
 
             return View(news);
@@ -213,6 +206,22 @@ namespace ClientApplication.Controllers
             ViewBag.wallet = getMoney();
 
             return View(standings);
+        }
+
+        public int getMoney()
+        {
+            // Check is user is logged in
+            if (HomeController.GetUserName(HttpContext) == null)
+            {
+                return 0;
+            }
+            else
+            {
+                // Get the user's coins
+                var userName = HomeController.GetUserName(HttpContext);
+                var user = _context.Users.FirstOrDefault(u => u.Username == userName);
+                return user.Coins;
+            }
         }
     }
 }

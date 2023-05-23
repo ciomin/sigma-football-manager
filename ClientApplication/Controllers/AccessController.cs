@@ -115,8 +115,16 @@ namespace ClientApplication.Controllers
                         utilizator.DateOfBirth = modelSignup.DateOfBirth;
 
                         // Generate a new user ID starting from the last ID present in the table
-                        int maxId = _context.Users.Max(u => u.UserId);
-                        utilizator.UserId = maxId + 1;
+                        // If the table is empty, the ID will be 1
+                        if(_context.Users.Count() == 0)
+                        {
+                            utilizator.UserId = 1;
+                        }
+                        else
+                        {
+                            int maxId = _context.Users.Max(u => u.UserId);
+                            utilizator.UserId = maxId + 1;
+                        }
 
                         // Set default values for not null fields
                         utilizator.NameOfTeam = "defaultName";
@@ -198,7 +206,7 @@ namespace ClientApplication.Controllers
             }
             else
             {
-                if (modelSquad.SquadName != "defaultName")
+                if (modelSquad.SquadName != "defaultName" && modelSquad.SquadName != null)
                 {
                     // Set the SquadId to be the same as the current user's UserId, set the UserID and the SquadName
                     Squad echipa = new Squad();
@@ -247,9 +255,9 @@ namespace ClientApplication.Controllers
                     }
 
                     // Select additional players based on the modified counts
-                    var legendaryPlayers = shuffledPlayers.Where(p => p.OverallRank >= 85 && p.Position != "GK").Take(legendaryPlayersCount).ToList();
-                    var rarePlayers = shuffledPlayers.Where(p => p.OverallRank >= 80 && p.OverallRank < 85 && p.Position != "GK").Take(rarePlayersCount).ToList();
-                    var commonPlayers = shuffledPlayers.Where(p => p.OverallRank < 80 && p.Position != "GK").Take(commonPlayersCount).ToList();
+                    var legendaryPlayers = shuffledPlayers.Where(p => p.OverallRank >= 85 && p.Position.TrimEnd() != "GK").Take(legendaryPlayersCount).ToList();
+                    var rarePlayers = shuffledPlayers.Where(p => p.OverallRank >= 80 && p.OverallRank < 85 && p.Position.TrimEnd() != "GK").Take(rarePlayersCount).ToList(); 
+                    var commonPlayers = shuffledPlayers.Where(p => p.OverallRank < 80 && p.Position.TrimEnd() != "GK").Take(commonPlayersCount).ToList();
 
                     // Combine the selected players into a single list
                     var selectedPlayers = legendaryPlayers.Concat(rarePlayers).Concat(commonPlayers).ToList();
@@ -257,7 +265,16 @@ namespace ClientApplication.Controllers
                     // Add the selected players to the team and database
                     int position = 1;
 
-                    int maxId = _context.TeamContracts.Max(u => u.ContractId);
+                    // If the contracts are empty, we set the maxId to 0, otherwise we set it to the maximum ContractId
+                    int maxId = 0;
+                    if(_context.TeamContracts.Count() == 0)
+                    {
+                        maxId = 0;
+                    }
+                    else
+                    {
+                        maxId = _context.TeamContracts.Max(u => u.ContractId);
+                    }
                     var goalkeeperContract = new TeamContract
                     {
                         ContractId = ++maxId,
@@ -292,7 +309,7 @@ namespace ClientApplication.Controllers
                 }
                 else
                 {
-                    ViewData["ValidateMessage"] = "You must choose a name!";
+                    ViewData["ValidateMessage"] = "Please choose a valid name first!";
                 }
             }
             return View();
