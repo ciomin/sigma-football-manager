@@ -26,7 +26,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ciomin/sigma-football-manager">
-    <img src="images/logo.png" alt="Logo" width="300">
+    <img src="images/logo.png" alt="Logo" width="100">
   </a>
 
 <h3 align="center">Sigma Football Manager</h3>
