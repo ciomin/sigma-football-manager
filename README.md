@@ -32,7 +32,7 @@
 <h3 align="center">Sigma Football Manager</h3>
 
   <p align="center">
-    Online football manager simulator with player-driven market
+    Online football simulation with a player trading market and pack opening features
     <br />
     <a href="./Sigma_Football_Manager_Documentation.pdf"><strong>Explore the docs »</strong></a>
     <br />
